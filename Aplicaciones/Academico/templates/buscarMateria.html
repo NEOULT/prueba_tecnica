@@ -1,0 +1,41 @@
+{% extends "./Base.html" %}
+
+{% block title %} Edicion de Materias {% endblock %}
+
+{% block body %}
+
+<div class="row"> 
+
+    <div class="col-md-4 offset md-4">
+
+        <h2> Muestreo de Materias </h2>
+        <div class="card">
+            <div class="body">
+                <form action="/mostrarMateria/" method="post"> {% csrf_token %} 
+                <div class="form-group">
+                    <input type="text" name="txtCodigo" id="txtCodigo" value="{{materias.codigo}}" class="form-control" placeholder="Codigo" 
+                    minlength="6" maxlength="6" readonly required >
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="txtNombre" id="txtNombre" value="{{materias.nombre}}" class="form-control" placeholder="Nombre" 
+                    maxlength="50" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="numHorasCreditos" id="numHorasCreditos" value="{{materias.horas_creditos}}" class="form-control" placeholder="Horas Creditos" 
+                    min="1" max="9" required>
+                </div> 
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn block text-white">Guardar</button>
+                </div> 
+            </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
